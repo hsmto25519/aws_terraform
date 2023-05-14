@@ -1,0 +1,11 @@
+mfaで利用するクレデンシャルは8時間に設定
+```
+account_id=
+mfa_name=
+token=
+SESSION_TOKEN="$(aws sts get-session-token --serial-number arn:aws:iam::${account_id}:mfa/${mfa_name} --duration-seconds 28800 --token-code $token)"
+export AWS_ACCESS_KEY_ID=$(echo $SESSION_TOKEN | jq -r '.Credentials.AccessKeyId')
+export AWS_SECRET_ACCESS_KEY=$(echo $SESSION_TOKEN | jq -r '.Credentials.SecretAccessKey')
+export AWS_SESSION_TOKEN=$(echo $SESSION_TOKEN | jq -r '.Credentials.SessionToken')
+terraform plan
+```
