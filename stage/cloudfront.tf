@@ -9,6 +9,8 @@ resource "aws_cloudfront_distribution" "cloudfront" {
 
   enabled = true
 
+  aliases = [var.fqdn.www]
+
   default_root_object = "index.html"
 
   default_cache_behavior {
@@ -39,8 +41,11 @@ resource "aws_cloudfront_distribution" "cloudfront" {
     }
   }
   viewer_certificate {
-    cloudfront_default_certificate = true
-    minimum_protocol_version       = "TLSv1.2_2021"
+    # cloudfront_default_certificate = true
+    acm_certificate_arn = aws_acm_certificate.www_veriws_net.id
+    # iam_certificate_id = aws_acm_certificate.www_veriws_net.id
+    ssl_support_method       = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
 
   tags = var.tags

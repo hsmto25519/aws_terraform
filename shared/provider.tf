@@ -11,3 +11,11 @@ terraform {
 provider "aws" {
   region = var.target_region
 }
+
+provider "aws" {
+  alias  = "north_virginia"
+  region = "us-east-1"
+}
+
+# dynamically get account_id.
+# data "aws_caller_identity" "current" {}

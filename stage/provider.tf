@@ -1,1 +1,1 @@
-../common/provider.tf
+../shared/provider.tf
