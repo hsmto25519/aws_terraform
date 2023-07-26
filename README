@@ -1,5 +1,8 @@
 mfaで利用するクレデンシャルは8時間に設定
 ```
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=
+
 account_id=
 mfa_name=
 token=
