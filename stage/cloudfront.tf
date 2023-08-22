@@ -48,7 +48,7 @@ resource "aws_cloudfront_distribution" "cloudfront" {
     minimum_protocol_version = "TLSv1.2_2021"
   }
 
-  tags = var.tags
+  # tags = var.tags
 }
 
 resource "aws_cloudfront_origin_access_identity" "oai" {}

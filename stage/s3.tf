@@ -1,7 +1,7 @@
 resource "aws_s3_bucket" "s3_images" {
   bucket        = "s3-sample5-images1"
   force_destroy = true
-  tags          = var.tags
+  # tags          = var.tags
 }
 
 resource "aws_s3_bucket_public_access_block" "public_access_block" {
