@@ -1,5 +1,5 @@
 terraform {
-  required_version = "v1.4.6"
+  required_version = "v1.5.4"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -10,11 +10,17 @@ terraform {
 
 provider "aws" {
   region = var.target_region
+  default_tags {
+    tags = var.tags
+  }
 }
 
 provider "aws" {
   alias  = "north_virginia"
   region = "us-east-1"
+  default_tags {
+    tags = var.tags
+  }
 }
 
 # dynamically get account_id.
