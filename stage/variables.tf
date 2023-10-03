@@ -6,4 +6,6 @@ variable "tags" {}
 
 variable "fqdn" {}
 
+variable "athena" {}
+
 # variable "s3" {}

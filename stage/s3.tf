@@ -105,7 +105,7 @@ data "aws_iam_policy_document" "s3_policy_logs" {
     condition {
       test     = "StringEquals"
       variable = "aws:SourceArn"
-      values = [aws_s3_bucket.s3_images.arn]
+      values   = [aws_s3_bucket.s3_images.arn]
     }
   }
 }
